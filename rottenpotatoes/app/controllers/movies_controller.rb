@@ -33,6 +33,10 @@ class MoviesController < ApplicationController
     @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
   end
 
+	def find_with_same_director movie
+		Movie.find_by(director: movie.director)
+	end
+
   def new
     # default: render 'new' template
   end
